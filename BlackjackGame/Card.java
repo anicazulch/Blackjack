@@ -18,12 +18,14 @@ public class Card extends Deck
     
     public String getSuit()
     {
-        return null;
+        return this.cardSuit;
     }
+    
     public int getValue(){
-        return 0;
+        return this.cardValue;
     }
+    
     public String getRank(){
-        return null;
+        return this.cardRank;
     }
 }
