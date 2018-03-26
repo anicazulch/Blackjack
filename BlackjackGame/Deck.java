@@ -16,7 +16,7 @@ public class Deck extends Game
     
     public void initializeDeck(){
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
-        String [] ranks = {"Ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+        String [] ranks = {"Ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "King", "Queen", "Jack"};
         
         for (String s : suits){
             int value = 1;
@@ -29,14 +29,21 @@ public class Deck extends Game
     }
     
     public void printDeck(){
-        for (Card c : deck){
+         for (Card c : deck){
             System.out.println(c);
         }
     }
     
     public void shuffleDeck()
     {
-        
+         for (int i = 0; i < deck.size(); i++){
+            ArrayList<Card> temp = new ArrayList<Card>();
+            while (!deck.isEmpty()){
+                int k = (int)(Math.random() * deck.size());
+                temp.add(k, Card);
+                deck.remove(k);
+            }
+        }
     }
     
     public Card deal(){

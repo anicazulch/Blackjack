@@ -10,11 +10,11 @@ public class Dealer extends Player
     }
 
     public void dealerPlay(){
-        //if(handTotal < 17){
-        //    hit();
-       // }
-        //if (handTotal > 17){
-          // stay();
+       // if(handTotal < 17){
+          // hit();
+       //}
+       //if (handTotal > 17){
+          //stay();
         //}
     }
     
