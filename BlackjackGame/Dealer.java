@@ -6,7 +6,7 @@ public class Dealer extends Player
     public Dealer()
     {
         // initialise instance variables
-        super("Dealer", -1);
+        super("Dealer", 0, 0);
     }
 
     public void dealerTurn(){
