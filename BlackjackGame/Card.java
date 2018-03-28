@@ -28,4 +28,12 @@ public class Card extends Deck
     public String getRank(){
         return this.cardRank;
     }
+    
+    public void setValue(Card c, int newValue){
+        c.cardValue = newValue;
+    }
+    
+    public void setSuit(Card c, String newSuit){
+        c.cardSuit = newSuit;
+    }
 }

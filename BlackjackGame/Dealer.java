@@ -9,13 +9,13 @@ public class Dealer extends Player
         super("Dealer", -1);
     }
 
-    public void dealerPlay(){
-       // if(handTotal < 17){
-          // hit();
-       //}
-       //if (handTotal > 17){
-          //stay();
-        //}
+    public void dealerTurn(){
+       if(handTotal < 17){
+          hit();
+       }
+       if (handTotal > 17){
+          stay();
+        }
     }
     
     public void hit(){

@@ -4,20 +4,21 @@ public class Player extends Game
 {
     // instance variables
     private String playerName;
-    private double amountOfMoney;
+    private double money;
     private int handTotal;
+    private int betMoney;
     private ArrayList<Card> hand = new ArrayList<Card>();
 
     Scanner scan = new Scanner(System.in);
     /**
      * Constructor for objects of class Player
      */
-    public Player(String name, double money)
+    public Player(String name, double mn, int hTotal)
     {
         // initialise instance variables
         this.playerName = name;
-        this.amountOfMoney = money;
-   
+        this.money = mn;
+        this.handTotal = hTotal;
     }
 
     public void turn(){
@@ -35,16 +36,22 @@ public class Player extends Game
     {
         System.out.println("Place bet");
         int betMoney = scan.nextInt();
-        System.out.println("You bet $" + betMoney + " and your total balance is $" + (double)(amountOfMoney - betMoney));
+        money -= betMoney;
+        System.out.println("You bet $" + betMoney + " and your total balance is $" + money);
     }
     
     public void hit(){
+        Card c = deck.deal();
     }
     
     public void stay(){
     }
     
     public void getHandTotal(){
+        for (Card c : hand){
+            handTotal += c.getValue();
+        }
+        return handTotal;
     }
     
     public String toString(){

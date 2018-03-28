@@ -16,7 +16,7 @@ public class Deck extends Game
     
     public void initializeDeck(){
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
-        String [] ranks = {"Ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "King", "Queen", "Jack"};
+        String[] ranks = {"Ace", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "Jack", "Queen", "King"};
         
         for (String s : suits){
             int value = 1;
@@ -40,13 +40,13 @@ public class Deck extends Game
             ArrayList<Card> temp = new ArrayList<Card>();
             while (!deck.isEmpty()){
                 int k = (int)(Math.random() * deck.size());
-                temp.add(k, Card);
+                temp.add(deck.get(k));
                 deck.remove(k);
             }
         }
     }
     
     public Card deal(){
-        return null;
+        return deck.get(0);
     }
 }
