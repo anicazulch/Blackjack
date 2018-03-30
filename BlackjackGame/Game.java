@@ -1,44 +1,43 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class Game
 {
-    // instance variables
-    private int x;
-    private ArrayList<Player> players;
-    Player p = new Player("Player", 0);
-    Dealer d = new Dealer();
-    /**
-     * Constructor for objects of class Game
-     */
+    Player[] players;
+    Player p = new Player("Player 1", 500, 0);
+    Player d = new Dealer();
+    
     public Game()
     {
-        // initialise instance variables
-        players = new ArrayList<Player>();
-        
+       players = new Player[2];
+       p = players[0];
+       d = players[1];
     }
 
     public void playGame()
+    
     {
-        while (d.getValue() <= 22 && p.getValue() <= 22){
-            d.dealerTurn();
+        p.bet();
+        while (d.getHandTotal() <= 22 && p.getHandTotal() <= 22){
             p.playerTurn();
+            d.dealerTurn();
         }
         determineWinner();
         endGame();
     }
     
     public String determineWinner(){
-        if (p.getHandTotal() > d.getHandTotal() && p.getHandTotal() <= 21){
+        if (p.getHandTotal() > d.getHandTotal() && d.getHandTotal() <= 21){
             return "You won";
-            p.money += 2 * betMoney;
-            d.money -= betMoney;
+            p.winMoney();
+            d.loseMoney();
         }
         else{
-            d.money += betMoney;
+            d.winMoney();
             return "The dealer won";
         }
     }
     
     public void endGame(){
-        
+        System.exit(0);
     }
 }

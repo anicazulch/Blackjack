@@ -27,6 +27,7 @@ public class Deck extends Game
             }
         }
     }
+    // need to reset wrong values for face cards
     
     public void printDeck(){
          for (Card c : deck){
@@ -47,6 +48,6 @@ public class Deck extends Game
     }
     
     public Card deal(){
-        return deck.get(0);
+        return deck.remove(0);
     }
 }

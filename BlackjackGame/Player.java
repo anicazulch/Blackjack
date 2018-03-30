@@ -21,7 +21,7 @@ public class Player extends Game
         this.handTotal = hTotal;
     }
 
-    public void turn(){
+    public void playerTurn(){
         System.out.println("Would you like to hit or stay? (1 = hit and 2 = stay");
         int playerTurn = scan.nextInt();
         if (playerTurn == 1){
@@ -34,20 +34,31 @@ public class Player extends Game
     
     public void bet()
     {
-        System.out.println("Place bet");
+        System.out.println("Place bet (you have $500)");
         int betMoney = scan.nextInt();
         money -= betMoney;
         System.out.println("You bet $" + betMoney + " and your total balance is $" + money);
     }
     
     public void hit(){
-        Card c = deck.deal();
+        hand.add(deck.deal());
+        System.out.println(hand);
     }
     
     public void stay(){
     }
     
-    public void getHandTotal(){
+    public double winMoney(){
+        return money += (2* betMoney);
+    }
+    
+    public double loseMoney(){
+        return money -= betMoney;
+    }
+    
+    
+    
+    public int getHandTotal(){
         for (Card c : hand){
             handTotal += c.getValue();
         }
